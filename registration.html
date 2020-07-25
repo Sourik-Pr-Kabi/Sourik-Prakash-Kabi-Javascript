@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REGISTRATION PAGE</title>
+        <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap" rel="stylesheet">
+        
+        <script src="validation.js"></script>
+        <style>
+
+            .container-fluid{
+              border: silver;
+              border-width: 10px;
+              border-style: ridge;
+              padding: 70px;
+            }
+
+            .display-4{
+              font-size: 50px;
+              font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+            .text-dark{
+              font-weight: bolder;
+            }
+
+            body {
+              background: url(gray.png) no-repeat center center fixed; 
+              -webkit-background-size: cover;
+              -moz-background-size: cover;
+              -o-background-size: cover;
+              background-size: cover;
+            }
+
+            a {
+              margin: 8px;
+              -webkit-transition: color 0.5s;
+              transition: color 0.5s;
+            }
+
+            a:hover {
+              color: #ff0000;
+              font-family: 'Syncopate', sans-serif;
+            }
+
+            small{
+              font-weight: bold;
+            }
+
+          </style>
+
+    </head>
+    
+    <body>
+        <div class="container-fluid">
+            <img class="img-responsive" src="register.png" height="145" width="370"> &nbsp;&nbsp; 
+            <div align="right">
+                <h1 class="display-4">
+                    Registration
+                    <small class="text-dark">for new users</small>
+                </h1>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+              <ul class="nav nav-pills nav-justified">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="registration" onclick="f2()" href="registration.html">REGISTRATION</a>
+                  </li>
+              </ul>
+            </nav>
+            <br><br>
+            <div class="container">
+      <div class="row">
+          <div class="col-md-8 col-sm-10 mx-auto">
+               <div class="card">
+                   <div class="card-body" style="background-color: #eeefff">
+                        <div class="mt-2 text-center">
+                             <h2>Create Your Account</h2>
+                         </div>
+                         <br>
+                         <div class="mt-4">
+                           <form action="#" name='registration' onSubmit="return checkgender();">
+                             <div class="form-group">
+                                 <label for="name" class="text-uppercase font-weight-bold text-primary">Name <label style="color: red;">*</label></label>
+                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Full Name" required="required" onblur="checkname()" onfocus= "clearname()">
+                                 <div class="text-danger font-weight-bold" id="nameerrormessage"></div>
+                             </div>
+                             <br>
+                             
+                             <div class="form-group">
+                                 <label for="email" class="text-uppercase font-weight-bold text-primary">E-mail ID <label style="color: red;">*</label></label>
+                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required="required" onblur="checkemail()" onfocus= "clearemail()">
+                                 <div class="text-danger font-weight-bold" id="emailerrormessage"></div>
+                             </div>
+                             <br>
+                             <div class="form-group">
+                                 <label for="mobileno" class="text-uppercase font-weight-bold text-primary">Mobile Number <label style="color: red;">*</label></label>
+                                 <input type="tel" class="form-control" id="mobno" name="mobno" placeholder="Enter Your Mobile Number" required="required" onblur="checkmobno()" onfocus= "clearmobno()">
+                                 <div class="text-danger font-weight-bold" id="mobnoerrormessage"></div>
+                             </div>
+                             <br>
+                             <div class="form-group">
+                                 <label for="country" class="text-uppercase font-weight-bold text-primary">Country</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <select name="country" id="country" onchange="checkcountry()">
+                                       <option selected value="Default">Select Country</option>
+                                       <option value="AF">India</option>
+                                       <option value="AL">Japan</option>
+                                       <option value="DZ">USA</option>
+                                       <option value="AS">Brazil</option>
+                                       <option value="AD">Sri Lanka</option>
+                                 </select>
+                                 <div class="text-danger font-weight-bold" id="countryerrormessage"></div>
+                             </div>
+                             <br>
+                             <div class="form-group">
+                                <label for="address" class="text-uppercase font-weight-bold text-primary">Address</label>
+                                <input type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address" required="required">
+                            </div>
+                            <br>
+                             <div class="form-group">
+                                 <label for="language" class="text-uppercase font-weight-bold text-primary">Languages Known <label style="color: red;">*</label></label>
+                                 <br>
+                                 <input type="checkbox" id="english" name="english" value="english" checked />
+                                       <span>English</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <input type="checkbox" id="bengali" name="bengali" value="bengali" />
+                                       <span>Bengali</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <input type="checkbox" id="hindi" name="hindi" value="hindi" />
+                                       <span>Hindi</span>
+                             </div>
+                             <br>
+                              <div class="form-group">
+                                 <label for="gender" class="text-uppercase font-weight-bold text-primary">Gender <label style="color: red;">*</label></label><br>
+                                 <input type="radio" name="gender" id="male" value="Male" onclick="cleargender()" />
+                                      <span id="maledisp">Male</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                 <input type="radio" name="gender" id="female" value="Female" onclick="cleargender()" />
+                                      <span id="femaledisp">Female</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" name="gender" id="other" value="Other" onclick="cleargender()" />
+                                      <span id="maledisp">Other</span>
+
+                                 <div class="text-danger font-weight-bold" id="gendererrormessage"></div>
+                             </div>
+                             <br>
+                             <div class="form-group">
+                                 <label for="userid" class="text-uppercase font-weight-bold text-primary">User Id <label style="color: red;">*</label></label>
+                                 <input type="text" class="form-control" id="userid" name="userid" placeholder="Enter Your User Id" required="required" onblur="checkUserId()" onfocus= "clearuserid()">
+                                 <div class="text-danger font-weight-bold" id="uiderrormessage"></div>
+                             </div>
+                             <br>
+                             <div class="form-group">
+                                  <label for="password" class="text-uppercase font-weight-bold text-primary">Password <label style="color: red;">*</label></label>
+                                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter password" required="required" onblur="checkpassword()" onfocus= "clearpassword()">
+                                  <br>
+                                  <div style="font-family: sans-serif; font-size: small;">Password must be 4 - 8 characters long and must include atleast one digit, one small case and one upper case alphabet</div>
+                                  <div class="text-danger font-weight-bold" id="passerrormessage"></div>
+                             </div>
+                             <br>
+                             <div class="form-group">
+                                <label for="password" class="text-uppercase font-weight-bold text-primary">Re-enter Password <label style="color: red;">*</label></label>
+                                <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-enter password" required="required" onblur="repass()" onfocus= "clearpassword()">
+                                <div class="text-danger font-weight-bold" id="repasserrormessage"></div>
+                           </div>
+                           <br>
+                                        
+                             <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                             <br>
+                             <input type="reset" class="btn btn-dark btn-block" value="Reset Form">
+                         </form>
+                       </div> <!-- Form tag div -->
+                  </div> <!-- Card Body End -->
+              </div> <!-- Card End -->
+           </div> <!-- Col alignment end -->
+         </div> <!-- Row End -->
+     </div> <!-- Container End -->
+        </div>
+        <br><br><br><br><br>
+    </body>
+</html>
